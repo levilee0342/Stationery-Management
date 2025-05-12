@@ -1,0 +1,61 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+spring:
+  datasource:
+    url: ${DBMS_URL}
+    username: ${DBMS_USERNAME}
+    password: ${DBMS_PASSWORD}
+  jpa:
+    hibernate:
+      #       Hibernate sẽ tự động tạo bảng dựa trên Entity (nếu chưa có) và cập nhật schema nếu thay đổi.
+      ddl-auto: none
+    #       Hiển thị câu lệnh SQL trên console.
+    show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${SMTP_USERNAME}
+    password: ${SMTP_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - openid
+              - profile
+              - email
+            redirect-uri: "http://localhost:8080/api/login/oauth2/code/google"
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+jwt:
+  signerKey: ${SIGNER_KEY}
+  valid-duration: 1200000 #seconds
+  refreshable-duration: 3600000 #seconds
+cloudinary:
+  cloudName: ${CLOUDINARY_NAME}
+  apiKey: ${CLOUDINARY_API_KEY}
+  apiSecret: ${CLOUDINARY_API_SECRET}
+momo:
+  partnerCode: ${PARTNER_CODE}
+  accessKey: ${ACCESS_KEY}
+  secretKey: ${SECRET_KEY}
+  endpoint: ${END_POINT}
+  redirectUrl: ${REDIRECT_URL}
+  ipnUrl: ${IPN_URL}
+  requestType: ${REQUEST_TYPE}
+  urlCheckTransaction: ${URL_CHECK_TRANSACTION}
