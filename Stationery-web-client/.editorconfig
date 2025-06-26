@@ -1,0 +1,6 @@
+# cho các editor biết cách format code
+# video hướng dẫn
+# https://www.youtube.com/watch?v=2doKHENxxUI 
+[*]
+indent_size = 2
+indent_style = space

@@ -1,0 +1,72 @@
+<!-- templates/review_gemini.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Review Gemini Mismatches</title>
+  <script>
+    function handleIntentChange(selectElement, id) {
+      const otherInput = document.getElementById(`other-intent-${id}`);
+      if (selectElement.value === 'other') {
+        otherInput.style.display = 'inline-block';
+      } else {
+        otherInput.style.display = 'none';
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Review Gemini Mismatches</h2>
+  <form method="POST" action="/submit_gemini_corrections">
+    <table border="1" cellpadding="8">
+      <tr>
+        <th>✓</th>
+        <th>ID</th>
+        <th>Timestamp</th>
+        <th>Message</th>
+        <th>Response</th>
+        <th>Gemini Feedback</th>
+        <th>Correct Intent</th>
+        <th>Other Intent</th>
+      </tr>
+      {% for item in interactions %}
+      <!-- item = (id, timestamp, user_id, message, response, gemini_feedback) -->
+      <tr>
+        <!-- Checkbox -->
+        <td>
+          <input
+            type="checkbox"
+            name="select_{{ item[0] }}"
+            id="select-{{ item[0] }}"
+          >
+        </td>
+        <td>{{ item[0] }}</td>
+        <td>{{ item[1] }}</td>
+        <td>{{ item[3] }}</td>
+        <td>{{ item[4] }}</td>
+        <td>{{ item[5] }}</td>
+        <td>
+          <select name="intent_{{ item[0] }}" onchange="handleIntentChange(this, '{{ item[0] }}')">
+            {% for tag in intents %}
+              <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
+            <option value="other">Other</option>
+          </select>
+        </td>
+        <td>
+          <input
+            type="text"
+            name="other_intent_{{ item[0] }}"
+            id="other-intent-{{ item[0] }}"
+            placeholder="Enter new intent"
+            style="display:none;"
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br>
+    <button type="submit">Submit Selected Gemini Corrections</button>
+  </form>
+</body>
+</html>

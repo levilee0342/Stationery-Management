@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Product Classifier</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { margin-top: 10px; }
+    img { max-width: 300px; display: block; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Upload Image for Classification</h2>
+  <input type="file" id="imageInput" accept="image/*" />
+  <button onclick="uploadImage()">Submit</button>
+  <div id="preview"></div>
+  <div id="result"></div>
+
+  <script>
+    function uploadImage() {
+      const fileInput = document.getElementById('imageInput');
+      const file = fileInput.files[0];
+      if (!file) {
+        alert("Please select an image file.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("image", file);
+
+      // Show preview
+      const preview = document.getElementById("preview");
+      const reader = new FileReader();
+      reader.onload = () => {
+        preview.innerHTML = `<img src="${reader.result}" alt="Preview" />`;
+      };
+      reader.readAsDataURL(file);
+
+      // Call Flask API
+      fetch("http://127.0.0.1:5000/predict", {
+        method: "POST",
+        body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+        const result = document.getElementById("result");
+        if (data.error) {
+          result.innerHTML = `<p style="color:red;">Error: ${data.error}</p>`;
+        } else {
+          result.innerHTML = `<h3>Result</h3>
+                              <p><strong>Label:</strong> ${data.label}</p>
+                              <p><strong>Confidence:</strong> ${(data.confidence * 100).toFixed(2)}%</p>`;
+        }
+      })
+      .catch(error => {
+        document.getElementById("result").innerHTML = `<p style="color:red;">Error: ${error}</p>`;
+      });
+    }
+  </script>
+</body>
+</html>

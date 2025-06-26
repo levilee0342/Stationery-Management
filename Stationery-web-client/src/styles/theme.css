@@ -1,0 +1,20 @@
+@layer base {
+  :root {
+    --primary: #1777ff;
+    --baseText: #000;
+    --baseBorder: #383838;
+    --baseBackground: #fff;
+    --btnPrimary: #3f00e8;
+    --btnTextColor: #fff;
+  }
+  :root[data-theme='light'] {
+    --baseText: #000;
+    --baseBackground: #fff;
+  }
+  :root[data-theme='dark'] {
+    --baseText: #fff;
+    --baseBackground: #000;
+    --baseBorder: #ffffff;
+    --btnPrimary: #7549ee;
+  }
+}

@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monthly Invoice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 12pt;
+            line-height: 1.6;
+            color: #333333;
+            background: #ffffff;
+        }
+
+        .invoice-container {
+            width: 800px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid #333333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .invoice-header {
+            background: #2c3e50;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .invoice-title {
+            font-size: 26pt;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .company-info {
+            font-size: 10pt;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        .department-header {
+            background: #ecf0f1;
+            color: black;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 12pt;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 3px;
+        }
+
+        .invoice-meta {
+            display: flex;
+            width: 100%;
+            padding: 15px;
+            background: #f7f9fa;
+            border-bottom: 1px solid #333333;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .meta-section {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .meta-section h3 {
+            font-size: 12pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .meta-item {
+            font-size: 10pt;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .meta-label {
+            font-weight: 500;
+            color: #555555;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            color: #333333;
+        }
+
+        .invoice-content {
+            padding: 15px;
+        }
+
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border: 1px solid #333333;
+            background: #ffffff;
+        }
+
+        .items-table thead {
+            background: #3498db;
+            color: #ffffff;
+        }
+
+        .items-table th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 10pt;
+            border-bottom: 1px solid #333333;
+        }
+
+        .items-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .items-table td {
+            padding: 12px;
+            font-size: 10pt;
+            vertical-align: middle;
+        }
+
+        .order-id {
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            background: #e0e0e0;
+            padding: 4px 8px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .product-name {
+            font-weight: 600;
+        }
+
+        .quantity-badge {
+            background: #27ae60;
+            color: #ffffff;
+            padding: 4px 10px;
+            font-size: 9pt;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 3px;
+            display: inline-block;
+            min-width: 24px;
+        }
+
+        .price, .total-price {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .total-price {
+            color: #27ae60;
+        }
+
+        .invoice-summary {
+            background: #34495e;
+            color: #ffffff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #333333;
+            border-radius: 3px;
+        }
+
+        .summary-row {
+            font-size: 10pt;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .summary-row:last-child {
+            border-top: 1px solid #ffffff;
+            padding-top: 12px;
+            font-size: 12pt;
+            font-weight: 700;
+            margin-top: 12px;
+        }
+
+        .summary-label {
+            font-weight: 500;
+        }
+
+        .summary-value {
+            font-weight: 600;
+        }
+
+        .amount-words {
+            font-size: 9pt;
+            font-style: italic;
+            text-align: right;
+            opacity: 0.9;
+        }
+
+        .invoice-footer {
+            text-align: center;
+            padding: 15px;
+            background: #f7f9fa;
+            font-size: 10pt;
+            border-top: 1px solid #333333;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .thank-you {
+            font-size: 12pt;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .footer-note {
+            color: #555555;
+            line-height: 1.5;
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            font-size: 9pt;
+            font-weight: 600;
+            background: #d5f5e3;
+            color: #186a3b;
+            border: 1px solid #186a3b;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        @media print {
+            body {
+                background: #ffffff;
+                margin: 0;
+            }
+            .invoice-container {
+                margin: 0;
+                border: none;
+                width: 100%;
+                box-shadow: none;
+            }
+            .items-table {
+                page-break-inside: auto;
+            }
+            .items-table tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="invoice-container">
+    <!-- Header -->
+    <div class="invoice-header">
+        <h1 class="invoice-title">MONTHLY INVOICE</h1>
+        <div class="company-info">
+            <strong>Stationery P</strong><br />
+            Address: 97 ManTech, Hiep Phu, Thu Duc City, Vietnam<br />
+            Phone: +84 922 888 999
+        </div>
+        <div class="department-header">
+            <strong>Department:</strong> ${userName}
+        </div>
+    </div>
+
+    <!-- Invoice Meta -->
+    <div class="invoice-meta">
+        <div class="meta-section">
+            <h3>Invoice Details</h3>
+            <div class="meta-item">
+                <span class="meta-label">Month/Year:</span>
+                <span class="meta-value">${month}/${year}</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Issue Date:</span>
+                <span class="meta-value">${currentDate}</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Status:</span>
+                <span class="status-badge">Completed</span>
+            </div>
+        </div>
+        <div class="meta-section">
+            <h3>Summary</h3>
+            <div class="meta-item">
+                <span class="meta-label">Total Orders:</span>
+                <span class="meta-value">${orderCount} orders</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Total Items:</span>
+                <span class="meta-value">${totalItems} items</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Invoice ID:</span>
+                <span class="meta-value">INV-${month}${year}-001</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invoice Content -->
+    <div class="invoice-content">
+        <table class="items-table">
+            <thead>
+            <tr>
+                <th style="width: 18%;">Order ID</th>
+                <th style="width: 38%;">Product</th>
+                <th style="width: 12%;">Qty</th>
+                <th style="width: 22%;">Unit Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            ${orderRows}
+            </tbody>
+        </table>
+
+        <!-- Invoice Summary -->
+        <div class="invoice-summary">
+            <div class="summary-row">
+                <span class="summary-label">Subtotal:</span>
+                <span class="summary-value">${subtotal} VND</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">VAT (0%):</span>
+                <span class="summary-value">0 VND</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">Discount:</span>
+                <span class="summary-value">0 VND</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">TOTAL:</span>
+                <span class="summary-value">
+                    ${totalAmount} VND
+                    <div class="amount-words">(${totalAmountInWords})</div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="invoice-footer">
+        <div class="thank-you">Thank you for your purchase!</div>
+        <div class="footer-note">
+            This invoice was generated automatically on ${currentDate}.<br />
+            For inquiries, contact: support@stationeryp.com | +84 922 888 999
+        </div>
+    </div>
+</div>
+</body>
+</html>

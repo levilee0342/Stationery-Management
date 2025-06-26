@@ -1,0 +1,166 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey",
+        "Good morning",
+        "Good afternoon",
+        "Howdy",
+        "What's up?",
+        "Greetings",
+        "Is anyone there?",
+        "How are you?",
+        "hi",
+        "hello",
+        "Hi",
+        "Hello",
+        "hi",
+        "helllo bro",
+        "hi"
+      ],
+      "responses": [
+        "Hello!",
+        "Hi there!",
+        "Hey, how's it going?",
+        "Good to see you!",
+        "Howdy!",
+        "Greetings, friend!",
+        "Nice to meet you!",
+        "Hey, how can I assist you?",
+        "Hi! What's on your mind?",
+        "Good day!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "Goodbye",
+        "See you later",
+        "Take care",
+        "Catch you later",
+        "Have a great day",
+        "Farewell",
+        "Talk to you soon",
+        "See ya",
+        "Cya"
+      ],
+      "responses": [
+        "Goodbye! Have a great day!",
+        "Take care!",
+        "See you soon!",
+        "It was nice talking to you!",
+        "Bye for now!",
+        "Catch you later!",
+        "Stay safe!",
+        "Hope to see you again!",
+        "Farewell!",
+        "Talk to you later!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "how",
+      "patterns": [
+        "How are you?",
+        "How's your day?",
+        "How do you feel?",
+        "Are you okay?",
+        "What's up?",
+        "How's it going?",
+        "How have you been?",
+        "Everything alright?",
+        "How's life?",
+        "Are you good?"
+      ],
+      "responses": [
+        "I'm great, thanks for asking!",
+        "I'm doing well, how about you?",
+        "Feeling awesome today!",
+        "I'm fine, how can I help?",
+        "I'm here and ready to assist you!",
+        "All good! Thanks for asking!",
+        "Doing great, hope you are too!",
+        "Feeling fantastic!",
+        "I'm good, thanks!",
+        "I feel great today!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "who_are_you",
+      "patterns": [
+        "Who are you?",
+        "What are you?",
+        "Tell me about yourself",
+        "Introduce yourself",
+        "What is your name?",
+        "Are you a bot?",
+        "Are you human?",
+        "Explain yourself",
+        "Can you tell me who you are?",
+        "What should I call you?",
+        "tell me about your task",
+        "who are you"
+      ],
+      "responses": [
+        "I am a chatbot developed by Team 6, integrated with Gemini API.",
+        "I'm an AI assistant created by Team 6 with integrated Gemini API to enhance responses.",
+        "I'm a chatbot built by Team 6 with support from Gemini AI.",
+        "My name is MeoMeo, and I was created by Team 6 with Gemini API integration.",
+        "I am an AI chatbot designed to assist you, developed by Team 6 and enhanced with Gemini API."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "list_products",
+      "patterns": [
+        "Show me your products",
+        "What products do you have?",
+        "Give me a list of products",
+        "Tell me about your products",
+        "List all available products",
+        "Show available items",
+        "What are you selling?",
+        "What do you offer?",
+        "I want to see your products",
+        "Give me the product list"
+      ],
+      "responses": [
+        "Here is a list of our available products: {product_list}",
+        "We currently offer the following products: {product_list}",
+        "Our product lineup includes: {product_list}",
+        "These are the products we have: {product_list}",
+        "Check out our available products: {product_list}"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "harry potter",
+        "harry poter",
+        "do you know what is book?",
+        "who is elon musk"
+      ],
+      "responses": [
+        ""
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "distraction",
+      "patterns": [
+        "wtf "
+      ],
+      "responses": [
+        "Sorry, I didn't understand"
+      ],
+      "context_set": ""
+    }
+  ]
+}

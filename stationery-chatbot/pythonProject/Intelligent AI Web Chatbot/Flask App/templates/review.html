@@ -1,0 +1,81 @@
+<!-- templates/review.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Review Interactions (Manual)</title>
+  <script>
+    function handleIntentChange(selectElement, id) {
+      const otherInput = document.getElementById(`other-intent-${id}`);
+      const responseInput = document.getElementById(`new-response-${id}`);
+      if (selectElement.value === 'other') {
+        otherInput.style.display = 'inline-block';
+        responseInput.style.display = 'inline-block';
+      } else {
+        otherInput.style.display = 'none';
+        responseInput.style.display = 'none';
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Review Interactions (Manual)</h2>
+  <form method="POST" action="/submit_corrections">
+    <table border="1" cellpadding="8">
+      <tr>
+        <th>✓</th>
+        <th>ID</th>
+        <th>Message</th>
+        <th>Response</th>
+        <th>Correct Intent</th>
+        <th>Other Intent</th>
+        <th>New Response (optional)</th>
+      </tr>
+      {% for item in interactions %}
+      <!-- item = (id, message, response, timestamp) -->
+      <tr>
+        <!-- Checkbox: nếu checked thì mới submit -->
+        <td>
+          <input
+            type="checkbox"
+            name="select_{{ item[0] }}"
+            id="select-{{ item[0] }}"
+          >
+        </td>
+        <td>{{ item[0] }}</td>
+        <td>{{ item[1] }}</td>
+        <td>{{ item[2] }}</td>
+        <td>
+          <select name="intent_{{ item[0] }}" onchange="handleIntentChange(this, '{{ item[0] }}')">
+            {% for tag in intents %}
+              <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
+            <option value="other">Other</option>
+          </select>
+        </td>
+        <td>
+          <input
+            type="text"
+            name="other_intent_{{ item[0] }}"
+            id="other-intent-{{ item[0] }}"
+            placeholder="Enter new intent"
+            style="display:none;"
+          >
+        </td>
+        <td>
+          <input
+            type="text"
+            name="new_response_{{ item[0] }}"
+            id="new-response-{{ item[0] }}"
+            placeholder="Enter new response"
+            style="display:none;"
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br>
+    <button type="submit">Submit Selected Corrections</button>
+  </form>
+</body>
+</html>

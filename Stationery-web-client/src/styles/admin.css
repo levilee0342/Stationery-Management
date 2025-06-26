@@ -1,0 +1,21 @@
+.menu-item-active {
+  @apply bg-brand-50 text-brand-500;
+}
+
+.menu-item-inactive {
+  @apply text-gray-700 hover:bg-gray-100 group-hover:text-gray-700;
+}
+.menu-item {
+  @apply relative flex items-center w-full gap-3 px-3 py-2 font-medium rounded-lg text-base;
+}
+
+.menu-dropdown-item {
+  @apply relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-base font-medium;
+}
+.menu-dropdown-item-active {
+  @apply bg-brand-50 text-brand-500;
+}
+
+.menu-dropdown-item-inactive {
+  @apply text-gray-700 hover:bg-gray-100;
+}

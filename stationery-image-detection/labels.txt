@@ -1,0 +1,15 @@
+Calculator
+Chair
+Fan
+Flowers
+Glass
+Keyboard
+Laptop
+Mouse
+Notebook
+Pan
+Paper_Clip
+Pen
+Ruler
+Scissors
+Table
