@@ -1,30 +1,31 @@
 # 🛒 Stationery Management
 
-A robust full-stack system built with Spring Boot and Python to streamline product ordering and inventory management.  
-The project features Google login, token-based authentication, AI-powered image recognition, and chatbot interaction for improved automation and user experience.
+**Timeline:** Feb 2025 - May 2025  
+**Team Project:** 4 members  
+**Tech Stack:** Java, Spring Boot, Python, TensorFlow, Keras, MySQL  
 
-## 🚀 Features
+---
 
-- **Product Ordering & Inventory Management**  
-  Manage stationery products with real-time updates and tracking.
+## 📖 Description
+A stationery management system with **RESTful Spring Boot backend** to support ordering, inventory, secure authentication, online payment, and AI-powered features.
 
-- **Authentication & Authorization**  
-  Integrated Google Login and JWT-based token authentication for secure user access.
+---
 
-- **AI-Powered Modules**  
-  - Image recognition using MobileNetV2 (e.g., product categorization via camera input)  
-  - Chatbot interaction using Gemini API, TensorFlow & Keras for answering common user queries
+## 🚀 Key Features
+- 🔑 Google Social Login with secure token-based authentication  
+- 📦 Product ordering & inventory management with real-time updates  
+- 💳 MoMo payment gateway integration  
+- 🖼️ AI-based image recognition (MobileNetV2) for product identification  
+- 🤖 AI chatbot (TensorFlow, Keras, Google Gemini API) for real-time customer support  
+- ⚡ Optimized MySQL schema for faster queries  
 
-- **Optimized Database Access**  
-  MySQL backend with tuned queries for efficient performance under concurrent access.
+---
 
-## 🛠️ Tech Stack
+## 👨‍💻 My Role
+- 🛍️ Implemented **order management & payment processing**  
+- 🖼️ Applied **MobileNetV2** for product image recognition  
+- 🤖 Built an **AI chatbot** using TensorFlow, Keras & Gemini API  
+- 💳 Integrated **MoMo payment gateway**  
+- ⚡ Optimized database schema for query efficiency  
 
-| Layer          | Technology                          |
-|----------------|-------------------------------------|
-| Backend        | Java, Spring Boot                   |
-| AI Components  | Python, TensorFlow, Keras           |
-| Authentication | Google OAuth 2.0, JWT               |
-| Database       | MySQL                               |
-
-
+---
