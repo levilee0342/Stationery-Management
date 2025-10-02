@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    tools:context=".fragment.user.HomeFragment">
+
+    <!-- Thanh tìm kiếm cố định -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:elevation="8dp"
+        android:theme="@style/Base.Theme.Office_Management">
+
+        <include layout="@layout/view_search_notification" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Nội dung có thể cuộn -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Banner quảng cáo -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/bannerSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false" />
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/bannerIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="8dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:padding="2dp"
+                app:tabIndicatorColor="@android:color/holo_blue_light"
+                app:tabIndicatorHeight="3dp"
+                app:tabMaxWidth="32dp"
+                app:tabMinWidth="16dp"
+                app:tabSelectedTextColor="@android:color/holo_blue_dark"
+                app:tabTextColor="@android:color/darker_gray"
+                android:background="@color/white"/>
+
+            <!-- Danh mục sản phẩm -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/menuRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:nestedScrollingEnabled="false" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_gray"
+                android:layout_marginVertical="8dp"/>
+
+            <ImageView
+                android:id="@+id/imgSvgBackToSchool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center" />
+
+            <!-- Flash Sale -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_gradient_super_deal"
+                    android:padding="4dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="8dp">
+
+                    <TextView
+                        android:id="@+id/tvFlashSaleTitle"
+                        android:text="FLASH SALE ⌛"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tvHours"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:gravity="center"
+                            android:text="00"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/timer_digit_background"
+                            android:layout_marginEnd="2dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/white"
+                            android:layout_marginHorizontal="2dp"/>
+
+                        <TextView
+                            android:id="@+id/tvMinutes"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:gravity="center"
+                            android:text="00"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/timer_digit_background"
+                            android:layout_marginEnd="2dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/white"
+                            android:layout_marginHorizontal="2dp"/>
+
+                        <TextView
+                            android:id="@+id/tvSeconds"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:gravity="center"
+                            android:text="00"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/timer_digit_background"
+                            android:layout_marginStart="2dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/flashSaleViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="300dp"
+                    android:layout_marginTop="8dp"
+                    android:clipToPadding="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/flashSaleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    app:tabIndicatorColor="@android:color/holo_blue_light"
+                    app:tabIndicatorHeight="3dp"
+                    app:tabMaxWidth="32dp"
+                    app:tabMinWidth="16dp"
+                    android:background="@color/white"/>
+
+                <!-- Navigation Buttons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnFlashSalePrev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Previous"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:padding="6dp"
+                        android:background="@drawable/button_nav_background"
+                        android:contentDescription="Previous Flash Sale Item"
+                        android:layout_marginEnd="8dp"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnFlashSaleNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Next"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:padding="6dp"
+                        android:background="@drawable/button_nav_background"
+                        android:contentDescription="Next Flash Sale Item"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_gray"
+                android:layout_marginVertical="8dp"/>
+
+            <ImageView
+                android:id="@+id/imgSvgSuggestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center" />
+
+            <!-- You Might Also Like -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tvSuggestionTitle"
+                    android:text="YOU MIGHT ALSO LIKE ✨"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_gradient_super_deal"
+                    android:textColor="@android:color/white"
+                    android:padding="4dp"
+                    android:paddingStart="16dp"/>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/suggestionViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="300dp"
+                    android:layout_marginTop="8dp"
+                    android:clipToPadding="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/suggestionIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    app:tabIndicatorColor="@android:color/holo_blue_light"
+                    app:tabIndicatorHeight="3dp"
+                    app:tabMaxWidth="32dp"
+                    app:tabMinWidth="16dp"
+                    android:background="@color/white"/>
+
+                <!-- Navigation Buttons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnSuggestionPrev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Previous"
+                        android:textSize="10sp"
+                        android:padding="6dp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/button_nav_background"
+                        android:contentDescription="Previous Suggestion Item"
+                        android:layout_marginEnd="8dp"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnSuggestionNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Next"
+                        android:textSize="10sp"
+                        android:padding="6dp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/button_nav_background"
+                        android:contentDescription="Next Suggestion Item"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgSvgFreeShip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center" />
+
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_gray"
+                android:layout_marginVertical="8dp"/>
+
+            <!-- Phần sản phẩm hiện tại -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:background="@drawable/bg_product_suggestion">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/productRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

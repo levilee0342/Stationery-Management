@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Màu hệ thống -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="magenta">#FF00FF</color>
+    <color name="shimmer_placeholder">#DDDDDD</color>
+    <!-- Màu mở rộng -->
+    <color name="light_gray">#D3D3D3</color>
+    <color name="dark_gray">#A9A9A9</color>
+    <color name="orange">#FFA500</color>
+    <color name="purple">#800080</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="brown">#A52A2A</color>
+
+    <!-- Màu trạng thái -->
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FF9800</color>
+    <color name="error">#F44336</color>
+
+    <!-- Màu đề cử -->
+    <color name="primary_blue">#2196F3</color>        <!-- Màu chủ đạo -->
+    <color name="primary_dark_blue">#1565C0</color>
+    <color name="accent_orange">#FF9800</color>       <!-- Màu khi nhấn -->
+    <color name="background_gray">#F5F5F5</color>     <!-- Màu nền phụ -->
+    <color name="text_primary">#212121</color>        <!-- Màu chữ chính -->
+    <color name="text_secondary">#757575</color>      <!-- Màu chữ phụ-->
+    <color name="error_red">#E53935</color>           <!-- Màu cảnh báo -->
+
+    <!-- Gradient Blues -->
+    <color name="gradient_blue_start">#00B4DB</color>
+    <color name="gradient_blue_end">#0083B0</color>
+
+    <color name="gradient_blue_light">#B2DBE9</color>
+    <color name="gradient_blue_white_light">#E8F2F2</color>
+
+
+</resources>

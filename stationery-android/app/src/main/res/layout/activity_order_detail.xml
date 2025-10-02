@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0F0F0"
+    android:fitsSystemWindows="true">
+
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:background="@color/primary_blue"
+      android:elevation="4dp"
+      app:titleTextColor="@android:color/white">
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_revert"
+        android:scaleType="centerInside"
+        android:contentDescription="Quay lại"
+        android:padding="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Detail"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center" />
+
+  </androidx.appcompat.widget.Toolbar>
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="@android:color/white"
+          android:orientation="vertical"
+          android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Information"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#EEEEEE" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Order: "
+              android:textStyle="bold"
+              android:textColor="@android:color/black"
+              android:textSize="16sp" />
+
+          <TextView
+              android:id="@+id/order_id_text_view"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="#402356938"
+              android:textColor="@android:color/black"
+              android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Date of purchase: "
+              android:textColor="@android:color/black"
+              android:textStyle="bold"
+              android:textSize="16sp" />
+
+          <TextView
+              android:id="@+id/purchase_date_text_view"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="12/05/2025 - 19:32"
+              android:textColor="@android:color/black"
+              android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Quantity: "
+              android:textColor="@android:color/black"
+              android:textStyle="bold"
+              android:textSize="16sp" />
+
+          <TextView
+              android:id="@+id/quantity_text_view"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="1 item"
+              android:textColor="@android:color/black"
+              android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Total: "
+              android:textColor="@android:color/black"
+              android:textStyle="bold"
+              android:textSize="16sp" />
+
+          <TextView
+              android:id="@+id/total_text_view"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="22.550 ₫"
+              android:textColor="@android:color/holo_red_dark"
+              android:textSize="16sp"
+              android:textStyle="bold" />
+        </LinearLayout>
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="@android:color/white"
+          android:orientation="vertical"
+          android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Receiver's Information"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#EEEEEE" />
+
+        <TextView
+            android:id="@+id/receiver_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nguyễn Hải"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical">
+
+          <ImageView
+              android:layout_width="18dp"
+              android:layout_height="18dp"
+              android:src="@drawable/ic_call"
+              android:contentDescription="Phone icon"
+              android:layout_marginEnd="4dp"
+              app:tint="@android:color/black" />
+
+          <TextView
+              android:id="@+id/receiver_phone_text_view"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="0946179504"
+              android:textColor="@android:color/black"
+              android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical">
+
+          <ImageView
+              android:layout_width="18dp"
+              android:layout_height="18dp"
+              android:src="@drawable/ic_address"
+              android:contentDescription="Home icon"
+              android:layout_marginEnd="4dp"
+              app:tint="@android:color/black" />
+
+          <TextView
+              android:id="@+id/receiver_address_text_view"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="31a Tăng Nhơn Phú, Phường Phước Long B, Quận 9, Hồ Chí Minh, Việt Nam"
+              android:textColor="@android:color/black"
+              android:textSize="16sp" />
+        </LinearLayout>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="@android:color/white"
+          android:orientation="vertical"
+          android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Method"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#EEEEEE" />
+
+        <TextView
+            android:id="@+id/payment_method_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MoMo e-wallet"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="@android:color/white"
+          android:orientation="vertical"
+          android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/note_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(don't have information)"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="@android:color/white"
+          android:orientation="vertical"
+          android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#EEEEEE" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false" />
+      </LinearLayout>
+
+    </LinearLayout>
+  </ScrollView>
+</LinearLayout>

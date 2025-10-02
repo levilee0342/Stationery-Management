@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/primary_blue"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:elevation="4dp">
+
+            <!-- Bên trong Toolbar: RelativeLayout để sắp xếp nút và thanh tìm kiếm -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <!-- Nút quay lại -->
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_menu_revert"
+                    android:scaleType="centerInside"
+                    android:contentDescription="Quay lại" />
+                <!-- Nút trang chủ -->
+                <ImageButton
+                    android:id="@+id/btnScan"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="4dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Trang chủ"
+                    android:src="@drawable/ic_scan"
+                    android:padding="4dp"
+                    android:scaleType="centerInside"/>
+
+                <!-- Thanh tìm kiếm -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/searchBarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/btn_back"
+                    android:layout_toStartOf="@id/btnScan"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/white"
+                    app:boxBackgroundMode="none"
+                    app:startIconTint="@color/gray"
+                    app:endIconDrawable="@drawable/ic_search"
+                    app:endIconMode="custom"
+                    app:endIconTint="@color/gray">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/searchEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Search..."
+                        android:imeOptions="actionSearch"
+                        android:padding="12dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"
+            android:layout_marginVertical="8dp"/>
+
+        <!-- Danh mục theo hàng ngang -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Danh mục hot"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_sidebar_categories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:overScrollMode="never"
+            android:clipChildren="true" />
+
+        <!-- Nút Xem thêm/Thu gọn -->
+        <Button
+            android:id="@+id/btnToggleCategories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/primary_blue"
+            android:layout_marginTop="8dp"
+            android:text="Xem thêm" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@color/light_gray"
+            android:layout_marginVertical="12dp" />
+
+        <!-- Filter Options -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:baselineAligned="false">
+
+            <!-- Lọc -->
+            <TextView
+                android:id="@+id/tvFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lọc"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:drawableStart="@drawable/ic_filter"
+                android:drawablePadding="4dp"
+                android:padding="8dp"
+                android:layout_marginEnd="8dp" />
+
+            <!-- NOW -->
+            <TextView
+                android:id="@+id/tvNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_now"
+                android:drawablePadding="0dp"
+                android:padding="2dp"
+                android:background="@drawable/bg_filter_chip"
+                android:layout_marginEnd="8dp" />
+
+            <!-- TOP DEAL -->
+            <TextView
+                android:id="@+id/tvTopDeal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_topdale"
+                android:drawablePadding="0dp"
+                android:padding="2dp"
+                android:background="@drawable/bg_filter_chip"
+                android:layout_marginEnd="8dp" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"
+            android:layout_marginVertical="12dp" />
+
+        <!-- Nút lọc/sắp xếp -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvPopular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phổ biến"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <Space
+                android:layout_width="18dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="•"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+            <Space
+                android:layout_width="18dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvBestSelling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bán chạy"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <Space
+                android:layout_width="18dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="•"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+            <Space
+                android:layout_width="18dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvNewArrivals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hàng mới"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="•"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giá ↑"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"
+            android:layout_marginVertical="12dp" />
+
+        <!-- Địa chỉ giao hàng -->
+        <TextView
+            android:id="@+id/tvDeliveryAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🚗 Giao đến 97 Man Thiện, Hiệp Phú, Thủ Đức"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Danh mục sản phẩm -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp"
+            android:background="@color/white">
+
+            <ProgressBar
+                android:id="@+id/productProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProductAds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

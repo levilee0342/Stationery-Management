@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_coupon_container"
+    android:padding="12dp"
+    android:layout_margin="8dp"
+    android:elevation="2dp">
+
+    <!-- Icon -->
+    <LinearLayout
+    android:layout_width="80dp"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/bg_coupon_icon"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_coupon_2" />
+    </LinearLayout>
+
+    <!-- Nội dung -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giảm 10% - VPP DCHS"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giảm tối đa 50K cho đơn từ 100K"
+            android:textColor="#616161"
+            android:textSize="14sp"
+            android:layout_marginTop="2dp" />
+
+        <!-- Hàng chứa mã code, hạn và nút copy -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="4dp"
+                    android:paddingHorizontal="8dp"
+                    android:text="FHSVPP0525"
+                    android:textColor="#4CAF50"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_code_box" />
+
+                <TextView
+                    android:id="@+id/tvExpire"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EXP: 31/05/2025"
+                    android:textColor="#1A73E8"
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCopy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Copy code"
+                android:textSize="14sp"
+                android:textColor="@color/green"
+                android:backgroundTint="@android:color/white"
+                android:strokeColor="@color/green"
+                app:cornerRadius="12dp"
+                android:paddingHorizontal="12dp"
+                android:textAllCaps="false"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

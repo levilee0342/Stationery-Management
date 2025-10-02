@@ -1,0 +1,124 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/bg_order_item"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginBottom="12dp"
+    android:elevation="2dp"
+    android:clipToPadding="false">
+
+    <!-- Header with Order ID and Status -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="4dp">
+
+        <TextView
+            android:id="@+id/tvOrderId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="#402356"
+            android:textColor="@color/primary_blue"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"/>
+
+        <TextView
+            android:id="@+id/tvOrderStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pending"
+            android:textAllCaps="true"
+            android:textColor="@color/accent_orange"
+            android:textSize="12sp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:background="@drawable/bg_order_status_pending"
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <!-- Order time -->
+    <TextView
+        android:id="@+id/tvCreateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Today, 10:30 AM"
+        android:textSize="12sp"
+        android:textColor="@color/text_secondary"
+        android:drawableStart="@drawable/ic_clock"
+        android:drawablePadding="4dp"
+        android:paddingBottom="8dp"/>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:layout_marginVertical="4dp"/>
+
+    <!-- Summary -->
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total (1 item): $22.55"
+        android:textSize="14sp"
+        android:textColor="@color/text_primary"
+        android:paddingVertical="8dp"
+        android:fontFamily="sans-serif-medium"/>
+
+    <!-- Action buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:paddingTop="4dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Cancel"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:cornerRadius="18dp"
+            app:strokeColor="@color/red"
+            app:strokeWidth="1dp"
+            android:minWidth="72dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReorder"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:text="Reorder"
+            android:textColor="@color/primary_dark_blue"
+            android:textSize="12sp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:cornerRadius="18dp"
+            app:strokeColor="@color/primary_dark_blue"
+            app:strokeWidth="1dp"
+            android:minWidth="72dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:text="Details"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:cornerRadius="18dp"
+            android:backgroundTint="@color/primary_blue"
+            android:minWidth="72dp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvKeyword"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:textSize="14sp"
+    android:textColor="@android:color/black"
+    android:background="@android:color/white"
+    android:gravity="start"
+    android:layout_margin="4dp"
+    android:ellipsize="end"
+    android:maxLines="1" />

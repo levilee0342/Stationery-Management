@@ -1,0 +1,117 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true">
+
+    <!-- Toolbar nằm ngoài ScrollView -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/primary_blue"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:elevation="4dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:scaleType="centerInside"
+            android:contentDescription="Quay lại"
+            android:padding="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shipping Information"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:paddingStart="16dp"/>
+
+        <!-- Nếu bạn muốn thêm các view con, nên dùng layout bên trong -->
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Nội dung cuộn được -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <include layout="@layout/checkout_step_progress"/>
+
+            <TextView
+                android:text="SHIPPING ADDRESS"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- Danh sách địa chỉ giao hàng -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false" />
+
+            <TextView
+                android:id="@+id/tvShipAddress"
+                android:text="Ship to another address"
+                android:textColor="@color/accent_orange"
+                android:drawableLeft="@drawable/ic_add_circle"
+                android:textSize="16sp"
+                android:drawablePadding="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:text="CUSTOMER NOTES"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/edt_customer_note"
+                android:hint="Enter notes for the order..."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:background="@drawable/bg_coupon_container"
+                android:textSize="14sp"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:maxLines="5" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Nút ở cuối màn hình -->
+    <Button
+        android:id="@+id/btnShipAddress"
+        android:text="Ship to this address"
+        android:backgroundTint="@color/accent_orange"
+        android:textColor="@android:color/white"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+</LinearLayout>

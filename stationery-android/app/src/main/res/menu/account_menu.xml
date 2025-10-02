@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/login"
+        android:icon="@drawable/ic_login"
+        android:title="LOGIN"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/register"
+        android:icon="@drawable/ic_register"
+        android:title="SIGN UP"
+        app:showAsAction="ifRoom" />
+
+</menu>

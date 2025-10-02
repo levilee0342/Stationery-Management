@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        app:iconTint="@color/bottom_nav_menu_color"/>
+
+    <item
+        android:id="@+id/categories"
+        android:icon="@drawable/ic_category"
+        android:title="Categories"
+        app:iconTint="@color/bottom_nav_menu_color"/>
+
+    <item
+        android:id="@+id/chatbot"
+        android:icon="@drawable/ic_ai"
+        android:title="AI ChatBot"
+        app:iconTint="@color/bottom_nav_menu_color"/>
+
+    <item
+        android:id="@+id/shopping"
+        android:icon="@drawable/ic_shopping_cart"
+        android:title="Cart"
+        app:iconTint="@color/bottom_nav_menu_color"/>
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_person"
+        android:title="Account"
+        app:iconTint="@color/bottom_nav_menu_color"/>
+
+</menu>

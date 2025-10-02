@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/bg_search_bar_gradient">
+
+    <!-- Dòng chào mừng -->
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stationery'P — Where Ideas Take Flight"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_blue_light"
+        android:fontFamily="@font/pacifico_regular_font"
+        android:textStyle="bold"
+        android:paddingBottom="6dp" />
+
+    <!-- Hàng chức năng: Search + Scan + Notification -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Thanh tìm kiếm -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/searchBarLayout"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_search_box"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_search"
+            app:startIconTint="@color/gray">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Search..."
+                android:paddingHorizontal="10dp"
+                android:textSize="12sp"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:focusable="false"
+                android:cursorVisible="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Icon Scan -->
+        <ImageView
+            android:id="@+id/btnScan"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_scan"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:scaleType="centerInside" />
+        <FrameLayout
+            android:id="@+id/notificationContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnNotification"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_notifications"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="6dp"
+                android:scaleType="centerInside"
+                android:tint="@android:color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/badgeNotification"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end|top"
+                android:layout_marginEnd="-5dp"
+                android:layout_marginTop="-5dp"
+                android:textColor="@color/red"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:visibility="gone"
+                android:text="99+" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

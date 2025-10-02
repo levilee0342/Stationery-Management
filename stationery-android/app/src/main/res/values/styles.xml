@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="OtpBox">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">number</item>
+        <item name="android:background">@android:drawable/editbox_background</item>
+        <item name="android:maxLength">1</item>
+    </style>
+    <!-- res/values/styles.xml -->
+    <style name="SearchTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Màu sắc -->
+        <item name="boxStrokeColor">@color/primary_blue</item>
+        <item name="boxStrokeErrorColor">@color/error_red</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="hintTextAppearance">@style/SearchHintTextAppearance</item>
+        <item name="boxBackgroundColor">@android:color/white</item>
+
+        <!-- Shape -->
+        <item name="boxCornerRadiusTopStart">24dp</item>
+        <item name="boxCornerRadiusTopEnd">24dp</item>
+        <item name="boxCornerRadiusBottomStart">24dp</item>
+        <item name="boxCornerRadiusBottomEnd">24dp</item>
+
+        <!-- Stroke -->
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1.5dp</item>
+
+        <!-- Icon -->
+        <item name="startIconTint">@color/primary_blue</item>
+        <item name="endIconTint">@color/primary_blue</item>
+        <item name="startIconDrawable">@drawable/ic_search</item>
+
+        <!-- Tắt floating label -->
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="SearchHintTextAppearance" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="SearchCounterTextAppearance" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="BottomNavTextStyle" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">14sp</item> <!-- Tùy chỉnh size -->
+        <item name="android:textStyle">bold</item> <!-- Tùy chọn -->
+    </style>
+    <!--    OTP-->
+    <style name="OtpEditTextStyle">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/bg_otp_edit_text</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:maxLength">1</item>
+    </style>
+
+</resources>
